@@ -75,7 +75,7 @@ if (helpersGrid && typeof authors !== "undefined") {
 
     card.innerHTML = `
       <div class="helper-card__avatar">${avatar}</div>
-      <h3>${author.name}</h3>
+      <h3>${author.name}${author.pro ? ` <small class="helper-card__pronouns">${author.pro}</small>` : ""}</h3>
       <p>${author.role || "Community Supporter"}</p>
     `;
 
