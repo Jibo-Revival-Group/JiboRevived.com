@@ -77,10 +77,10 @@ const authors = {
     role: ""
   },
   sd: {
-    name: "Alex Rose (aka Jibo Dentist)",
+    name: "Alex Rose (Expert at Jiboeology)",
     initials: "AR",
-    pfp: "assets/pfp/dentist.webp",
-    role: "Website Help"
+    pfp: "assets/pfp/jibotolgyst.png",
+    role: "Cheif Jiboeologist and Internet Dumb Dum"
   },
   dm: {
     name: "Demme",
