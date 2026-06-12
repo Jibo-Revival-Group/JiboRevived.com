@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serial Decoder · Jibo Revival Project</title>
+    <meta
+      name="description"
+      content="Decode Jibo serial numbers and model numbers to reveal manufacturer, color, generation, country, and build date."
+    />
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Open theme menu" aria-expanded="false">
+      <span aria-hidden="true">⚙</span>
+    </button>
+    <div class="theme-menu" id="theme-menu" hidden>
+      <button type="button" class="theme-menu__item" data-theme="default">Default</button>
+      <button type="button" class="theme-menu__item" data-theme="aero">Frutiger Aero</button>
+    </div>
+
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <a class="brand" href="https://jiborevived.com/">
+            <img class="brand__logo" src="logo.svg" alt="" aria-hidden="true" />
+            <span>Jibo Revival Project</span>
+          </a>
+          <div class="topbar__links">
+            <a href="https://jiborevived.com/">Home</a>
+            <a href="https://jiborevived.com/#tools">Tools</a>
+            <a href="https://jiborevived.com/docs.html">Docs</a>
+          </div>
+        </nav>
+
+        <section class="hero__content tool-hero">
+          <div class="tool-hero__copy">
+            <p class="eyebrow">Tools</p>
+            <h1>Serial &amp; Model Decoder</h1>
+            <p class="hero__lede">
+              Paste a serial or model number to learn where your Jibo was built, what configuration it is,
+              and when it rolled off the line.
+            </p>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="panel decoder-panel" aria-labelledby="decode-heading">
+          <div class="section-heading">
+            <p class="eyebrow">Decode</p>
+            <h2 id="decode-heading">Enter your numbers</h2>
+          </div>
+
+          <div class="field-group">
+            <label for="serial-input">Serial number</label>
+            <p class="field-hint">
+              Format: <code>FFmm-mmmm-mmYY-MMDD-xxxx</code> — e.g. <code>BOJW-1000-0017-0212-0001</code>
+            </p>
+            <input
+              type="text"
+              id="serial-input"
+              name="serial"
+              placeholder="BOJW-1000-0017-0212-0001"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="24"
+            />
+          </div>
+
+          <div class="divider" role="separator"><span>or</span></div>
+
+          <div class="field-group">
+            <label for="model-input">Model number</label>
+            <p class="field-hint">
+              Format: <code>J[Color][Model][Future][Country]</code> — e.g. <code>JW100000</code>
+            </p>
+            <input
+              type="text"
+              id="model-input"
+              name="model"
+              placeholder="JW100000"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="12"
+            />
+          </div>
+
+          <div class="hero__actions">
+            <button type="button" id="decode-btn" class="button button--primary">Decode</button>
+            <button type="button" id="clear-btn" class="button button--ghost">Clear</button>
+          </div>
+        </section>
+
+        <section id="results" class="results hidden" aria-live="polite" aria-atomic="true"></section>
+
+        <section class="panel reference-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Reference</p>
+            <h2>Quick lookup</h2>
+          </div>
+          <div class="reference-grid">
+            <article class="feature-card">
+              <p class="feature-card__label">Manufacturers</p>
+              <dl class="ref-list">
+                <dt><code>BO</code></dt><dd>Blue Ocean (manufactured)</dd>
+                <dt><code>CC</code></dt><dd>CoreCentric (refurbished)</dd>
+              </dl>
+            </article>
+            <article class="feature-card">
+              <p class="feature-card__label">Color</p>
+              <dl class="ref-list">
+                <dt><code>W</code></dt><dd>White</dd>
+                <dt><code>B</code></dt><dd>Black</dd>
+              </dl>
+            </article>
+            <article class="feature-card">
+              <p class="feature-card__label">Model version</p>
+              <dl class="ref-list">
+                <dt><code>10</code></dt><dd>First Generation</dd>
+              </dl>
+            </article>
+            <article class="feature-card">
+              <p class="feature-card__label">Country</p>
+              <dl class="ref-list">
+                <dt><code>00</code></dt><dd>United States</dd>
+                <dt><code>01</code></dt><dd>China</dd>
+              </dl>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 Jibo Revival Project</p>
+        <p>
+          <a href="https://jiborevived.com/">Home</a>
+          <span class="footer-sep">•</span>
+          <a href="https://discord.gg/CxXBGMrrNG" target="_blank" rel="noreferrer">Discord</a>
+          <span class="footer-sep">•</span>
+          Documentation-based decoder
+        </p>
+      </footer>
+    </div>
+
+    <script src="decoder.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
